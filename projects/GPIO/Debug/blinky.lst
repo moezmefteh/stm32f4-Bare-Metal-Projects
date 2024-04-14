@@ -1,0 +1,398 @@
+
+Debug/blinky.elf:     file format elf32-littlearm
+Debug/blinky.elf
+architecture: armv7e-m, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x08000111
+
+Program Header:
+    LOAD off    0x00010000 vaddr 0x08000000 paddr 0x08000000 align 2**16
+         filesz 0x00000194 memsz 0x00000194 flags r-x
+    LOAD off    0x00000000 vaddr 0x20000000 paddr 0x08000194 align 2**16
+         filesz 0x00000000 memsz 0x00000004 flags rw-
+private flags = 0x5000200: [Version5 EABI] [soft-float ABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  08000000  08000194  00010194  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .init         00000004  08000000  08000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .fini         00000004  08000004  08000004  00010004  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .text.main    00000028  08000008  08000008  00010008  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 .text.init_led 00000078  08000030  08000030  00010030  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  5 .text.read_button 00000010  080000a8  080000a8  000100a8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text.led_toggle 00000038  080000b8  080000b8  000100b8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text.delay_ms 00000020  080000f0  080000f0  000100f0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .text.Reset_Handler 00000084  08000110  08000110  00010110  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .data         00000000  20000000  20000000  00010194  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 10 .bss          00000000  20000000  08000194  00000000  2**0
+                  ALLOC
+ 11 .bss.delay_ticks 00000004  20000000  08000194  00020000  2**2
+                  ALLOC
+ 12 .ARM.attributes 0000002e  00000000  00000000  00010194  2**0
+                  CONTENTS, READONLY
+ 13 .comment      00000049  00000000  00000000  000101c2  2**0
+                  CONTENTS, READONLY
+ 14 .debug_info   000005e9  00000000  00000000  0001020b  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 15 .debug_abbrev 0000020e  00000000  00000000  000107f4  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 16 .debug_loc    000000b0  00000000  00000000  00010a02  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 17 .debug_aranges 00000080  00000000  00000000  00010ab2  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 18 .debug_ranges 00000060  00000000  00000000  00010b32  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 19 .debug_line   000003db  00000000  00000000  00010b92  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 20 .debug_str    000003c0  00000000  00000000  00010f6d  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 21 .debug_frame  000000e4  00000000  00000000  00011330  2**2
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+SYMBOL TABLE:
+08000000 l    d  .text	00000000 .text
+08000000 l    d  .init	00000000 .init
+08000004 l    d  .fini	00000000 .fini
+08000008 l    d  .text.main	00000000 .text.main
+08000030 l    d  .text.init_led	00000000 .text.init_led
+080000a8 l    d  .text.read_button	00000000 .text.read_button
+080000b8 l    d  .text.led_toggle	00000000 .text.led_toggle
+080000f0 l    d  .text.delay_ms	00000000 .text.delay_ms
+08000110 l    d  .text.Reset_Handler	00000000 .text.Reset_Handler
+20000000 l    d  .data	00000000 .data
+20000000 l    d  .bss	00000000 .bss
+20000000 l    d  .bss.delay_ticks	00000000 .bss.delay_ticks
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    df *ABS*	00000000 crti.o
+00000000 l    df *ABS*	00000000 blinky.c
+00000000 l    df *ABS*	00000000 stm32_startup_f4.c
+08000194 g       *ABS*	00000000 _la_data
+08000000 g       .text	00000000 _etext
+20000000 g       .bss	00000000 _sbss
+08000030 g     F .text.init_led	00000078 init_led
+20000000 g       .data	00000000 _sdata
+08000000 g     F .init	00000000 _init
+20000000 g       .bss	00000000 _ebss
+08000110 g     F .text.Reset_Handler	00000084 Reset_Handler
+080000a8 g     F .text.read_button	00000010 read_button
+08000008 g     F .text.main	00000028 main
+080000f0 g     F .text.delay_ms	00000020 delay_ms
+20000000 g     O .bss.delay_ticks	00000004 delay_ticks
+080000b8 g     F .text.led_toggle	00000038 led_toggle
+08000004 g     F .fini	00000000 _fini
+20000000 g       .data	00000000 _edata
+
+
+
+Disassembly of section .init:
+
+08000000 <_init>:
+ 8000000:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8000002:	bf00      	nop
+
+Disassembly of section .fini:
+
+08000004 <_fini>:
+ 8000004:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8000006:	bf00      	nop
+
+Disassembly of section .text.main:
+
+08000008 <main>:
+volatile uint32_t delay_ticks;
+/*************************************************
+* main code starts from here
+*************************************************/
+int main(void)
+{
+ 8000008:	b508      	push	{r3, lr}
+    // Initialize GPIO
+    init_led();
+ 800000a:	f000 f811 	bl	8000030 <init_led>
+    //init_button();
+    // the code should never leave its master loop, hence while(1) or for(;;)
+    while(1)
+    {
+        // Set delay based on button state
+        if(!read_button()) {
+ 800000e:	f000 f84b 	bl	80000a8 <read_button>
+ 8000012:	4603      	mov	r3, r0
+ 8000014:	2b00      	cmp	r3, #0
+ 8000016:	d104      	bne.n	8000022 <main+0x1a>
+            delay_ms(1000);  // Delay when the button is released
+ 8000018:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
+ 800001c:	f000 f868 	bl	80000f0 <delay_ms>
+ 8000020:	e003      	b.n	800002a <main+0x22>
+        } else {
+            delay_ms(500);   // Delay when the button is pressed
+ 8000022:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
+ 8000026:	f000 f863 	bl	80000f0 <delay_ms>
+        }
+        // Toggle LED pins
+        led_toggle();
+ 800002a:	f000 f845 	bl	80000b8 <led_toggle>
+        if(!read_button()) {
+ 800002e:	e7ee      	b.n	800000e <main+0x6>
+
+Disassembly of section .text.init_led:
+
+08000030 <init_led>:
+     * More info in Chapter 7 - RCC in RM0090
+     */
+
+    /* Enable GPIOD clock (AHB1ENR: bit 3) */
+    // AHB1ENR: XXXX XXXX XXXX XXXX XXXX XXXX XXXX 1XXX
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;//GPIODEN;
+ 8000030:	4b1b      	ldr	r3, [pc, #108]	; (80000a0 <init_led+0x70>)
+ 8000032:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 8000034:	4a1a      	ldr	r2, [pc, #104]	; (80000a0 <init_led+0x70>)
+ 8000036:	f043 0308 	orr.w	r3, r3, #8
+ 800003a:	6313      	str	r3, [r2, #48]	; 0x30
+    // In order to make a pin output, we need to write 01 to the relevant
+    // section in MODER register
+    //                     bit31                                         bit0
+    // MODER register bits : xx xx xx 01 XX XX XX XX XX XX XX XX XX XX XX XX
+    //                      p15      p12                                  p0
+	GPIOD->MODER |= (1U<<24);
+ 800003c:	4b19      	ldr	r3, [pc, #100]	; (80000a4 <init_led+0x74>)
+ 800003e:	681b      	ldr	r3, [r3, #0]
+ 8000040:	4a18      	ldr	r2, [pc, #96]	; (80000a4 <init_led+0x74>)
+ 8000042:	f043 7380 	orr.w	r3, r3, #16777216	; 0x1000000
+ 8000046:	6013      	str	r3, [r2, #0]
+	GPIOD->MODER &= ~(1U<<25);
+ 8000048:	4b16      	ldr	r3, [pc, #88]	; (80000a4 <init_led+0x74>)
+ 800004a:	681b      	ldr	r3, [r3, #0]
+ 800004c:	4a15      	ldr	r2, [pc, #84]	; (80000a4 <init_led+0x74>)
+ 800004e:	f023 7300 	bic.w	r3, r3, #33554432	; 0x2000000
+ 8000052:	6013      	str	r3, [r2, #0]
+	GPIOD->MODER |= (1U<<26);
+ 8000054:	4b13      	ldr	r3, [pc, #76]	; (80000a4 <init_led+0x74>)
+ 8000056:	681b      	ldr	r3, [r3, #0]
+ 8000058:	4a12      	ldr	r2, [pc, #72]	; (80000a4 <init_led+0x74>)
+ 800005a:	f043 6380 	orr.w	r3, r3, #67108864	; 0x4000000
+ 800005e:	6013      	str	r3, [r2, #0]
+	GPIOD->MODER &= ~(1U<<27);
+ 8000060:	4b10      	ldr	r3, [pc, #64]	; (80000a4 <init_led+0x74>)
+ 8000062:	681b      	ldr	r3, [r3, #0]
+ 8000064:	4a0f      	ldr	r2, [pc, #60]	; (80000a4 <init_led+0x74>)
+ 8000066:	f023 6300 	bic.w	r3, r3, #134217728	; 0x8000000
+ 800006a:	6013      	str	r3, [r2, #0]
+    GPIOD->MODER |= (1U<<28);
+ 800006c:	4b0d      	ldr	r3, [pc, #52]	; (80000a4 <init_led+0x74>)
+ 800006e:	681b      	ldr	r3, [r3, #0]
+ 8000070:	4a0c      	ldr	r2, [pc, #48]	; (80000a4 <init_led+0x74>)
+ 8000072:	f043 5380 	orr.w	r3, r3, #268435456	; 0x10000000
+ 8000076:	6013      	str	r3, [r2, #0]
+	GPIOD->MODER &= ~(1U<<29);
+ 8000078:	4b0a      	ldr	r3, [pc, #40]	; (80000a4 <init_led+0x74>)
+ 800007a:	681b      	ldr	r3, [r3, #0]
+ 800007c:	4a09      	ldr	r2, [pc, #36]	; (80000a4 <init_led+0x74>)
+ 800007e:	f023 5300 	bic.w	r3, r3, #536870912	; 0x20000000
+ 8000082:	6013      	str	r3, [r2, #0]
+	GPIOD->MODER |= (1U<<30);
+ 8000084:	4b07      	ldr	r3, [pc, #28]	; (80000a4 <init_led+0x74>)
+ 8000086:	681b      	ldr	r3, [r3, #0]
+ 8000088:	4a06      	ldr	r2, [pc, #24]	; (80000a4 <init_led+0x74>)
+ 800008a:	f043 4380 	orr.w	r3, r3, #1073741824	; 0x40000000
+ 800008e:	6013      	str	r3, [r2, #0]
+	GPIOD->MODER &= ~(1U<<31);
+ 8000090:	4b04      	ldr	r3, [pc, #16]	; (80000a4 <init_led+0x74>)
+ 8000092:	681b      	ldr	r3, [r3, #0]
+ 8000094:	4a03      	ldr	r2, [pc, #12]	; (80000a4 <init_led+0x74>)
+ 8000096:	f023 4300 	bic.w	r3, r3, #2147483648	; 0x80000000
+ 800009a:	6013      	str	r3, [r2, #0]
+}
+ 800009c:	bf00      	nop
+ 800009e:	4770      	bx	lr
+ 80000a0:	40023800 	.word	0x40023800
+ 80000a4:	40020c00 	.word	0x40020c00
+
+Disassembly of section .text.read_button:
+
+080000a8 <read_button>:
+	GPIOA->MODER &= ~(1U<<31);
+}
+
+unsigned int read_button(void)
+{
+    return (GPIOA->IDR & (1 << BUTTON));
+ 80000a8:	4b02      	ldr	r3, [pc, #8]	; (80000b4 <read_button+0xc>)
+ 80000aa:	691b      	ldr	r3, [r3, #16]
+ 80000ac:	f003 0301 	and.w	r3, r3, #1
+}
+ 80000b0:	4618      	mov	r0, r3
+ 80000b2:	4770      	bx	lr
+ 80000b4:	40020000 	.word	0x40020000
+
+Disassembly of section .text.led_toggle:
+
+080000b8 <led_toggle>:
+
+void led_toggle(void)
+{
+	GPIOD->ODR ^= (1 << LED_PIN_1);
+ 80000b8:	4b0c      	ldr	r3, [pc, #48]	; (80000ec <led_toggle+0x34>)
+ 80000ba:	695b      	ldr	r3, [r3, #20]
+ 80000bc:	4a0b      	ldr	r2, [pc, #44]	; (80000ec <led_toggle+0x34>)
+ 80000be:	f483 5380 	eor.w	r3, r3, #4096	; 0x1000
+ 80000c2:	6153      	str	r3, [r2, #20]
+    GPIOD->ODR ^= (1 << LED_PIN_2);
+ 80000c4:	4b09      	ldr	r3, [pc, #36]	; (80000ec <led_toggle+0x34>)
+ 80000c6:	695b      	ldr	r3, [r3, #20]
+ 80000c8:	4a08      	ldr	r2, [pc, #32]	; (80000ec <led_toggle+0x34>)
+ 80000ca:	f483 5300 	eor.w	r3, r3, #8192	; 0x2000
+ 80000ce:	6153      	str	r3, [r2, #20]
+    GPIOD->ODR ^= (1 << LED_PIN_3);
+ 80000d0:	4b06      	ldr	r3, [pc, #24]	; (80000ec <led_toggle+0x34>)
+ 80000d2:	695b      	ldr	r3, [r3, #20]
+ 80000d4:	4a05      	ldr	r2, [pc, #20]	; (80000ec <led_toggle+0x34>)
+ 80000d6:	f483 4380 	eor.w	r3, r3, #16384	; 0x4000
+ 80000da:	6153      	str	r3, [r2, #20]
+    GPIOD->ODR ^= (1 << LED_PIN_4);
+ 80000dc:	4b03      	ldr	r3, [pc, #12]	; (80000ec <led_toggle+0x34>)
+ 80000de:	695b      	ldr	r3, [r3, #20]
+ 80000e0:	4a02      	ldr	r2, [pc, #8]	; (80000ec <led_toggle+0x34>)
+ 80000e2:	f483 4300 	eor.w	r3, r3, #32768	; 0x8000
+ 80000e6:	6153      	str	r3, [r2, #20]
+}
+ 80000e8:	bf00      	nop
+ 80000ea:	4770      	bx	lr
+ 80000ec:	40020c00 	.word	0x40020c00
+
+Disassembly of section .text.delay_ms:
+
+080000f0 <delay_ms>:
+    if (delay_ticks > 0) {
+        delay_ticks--;
+    }
+}
+
+void delay_ms(uint32_t milliseconds) {
+ 80000f0:	b082      	sub	sp, #8
+ 80000f2:	9001      	str	r0, [sp, #4]
+    delay_ticks = milliseconds;
+ 80000f4:	4a05      	ldr	r2, [pc, #20]	; (800010c <delay_ms+0x1c>)
+ 80000f6:	9b01      	ldr	r3, [sp, #4]
+ 80000f8:	6013      	str	r3, [r2, #0]
+    while (delay_ticks > 0);
+ 80000fa:	bf00      	nop
+ 80000fc:	4b03      	ldr	r3, [pc, #12]	; (800010c <delay_ms+0x1c>)
+ 80000fe:	681b      	ldr	r3, [r3, #0]
+ 8000100:	2b00      	cmp	r3, #0
+ 8000102:	d1fb      	bne.n	80000fc <delay_ms+0xc>
+ 8000104:	bf00      	nop
+ 8000106:	bf00      	nop
+ 8000108:	b002      	add	sp, #8
+ 800010a:	4770      	bx	lr
+ 800010c:	20000000 	.word	0x20000000
+
+Disassembly of section .text.Reset_Handler:
+
+08000110 <Reset_Handler>:
+ * 2. Initializes the uninitialized data section in SRAM to zero.
+ * 3. Calls the main application function.
+ * Note: You can add further initialization code here as needed.
+ */
+void Reset_Handler(void)
+{
+ 8000110:	b500      	push	{lr}
+ 8000112:	b087      	sub	sp, #28
+	//copy .data section to SRAM
+	uint32_t size = (uint32_t)&_edata - (uint32_t)&_sdata;
+ 8000114:	4a1a      	ldr	r2, [pc, #104]	; (8000180 <Reset_Handler+0x70>)
+ 8000116:	4b1b      	ldr	r3, [pc, #108]	; (8000184 <Reset_Handler+0x74>)
+ 8000118:	1ad3      	subs	r3, r2, r3
+ 800011a:	9301      	str	r3, [sp, #4]
+	
+	uint8_t *pDst = (uint8_t*)&_sdata; //sram
+ 800011c:	4b19      	ldr	r3, [pc, #100]	; (8000184 <Reset_Handler+0x74>)
+ 800011e:	9305      	str	r3, [sp, #20]
+	uint8_t *pSrc = (uint8_t*)&_la_data; //flash
+ 8000120:	4b19      	ldr	r3, [pc, #100]	; (8000188 <Reset_Handler+0x78>)
+ 8000122:	9304      	str	r3, [sp, #16]
+	
+	for(uint32_t i =0 ; i < size ; i++)
+ 8000124:	2300      	movs	r3, #0
+ 8000126:	9303      	str	r3, [sp, #12]
+ 8000128:	e00a      	b.n	8000140 <Reset_Handler+0x30>
+	{
+		*pDst++ = *pSrc++;
+ 800012a:	9a04      	ldr	r2, [sp, #16]
+ 800012c:	1c53      	adds	r3, r2, #1
+ 800012e:	9304      	str	r3, [sp, #16]
+ 8000130:	9b05      	ldr	r3, [sp, #20]
+ 8000132:	1c59      	adds	r1, r3, #1
+ 8000134:	9105      	str	r1, [sp, #20]
+ 8000136:	7812      	ldrb	r2, [r2, #0]
+ 8000138:	701a      	strb	r2, [r3, #0]
+	for(uint32_t i =0 ; i < size ; i++)
+ 800013a:	9b03      	ldr	r3, [sp, #12]
+ 800013c:	3301      	adds	r3, #1
+ 800013e:	9303      	str	r3, [sp, #12]
+ 8000140:	9a03      	ldr	r2, [sp, #12]
+ 8000142:	9b01      	ldr	r3, [sp, #4]
+ 8000144:	429a      	cmp	r2, r3
+ 8000146:	d3f0      	bcc.n	800012a <Reset_Handler+0x1a>
+	}
+	
+	//Init. the .bss section to zero in SRAM
+	size = (uint32_t)&_ebss - (uint32_t)&_sbss;
+ 8000148:	4a10      	ldr	r2, [pc, #64]	; (800018c <Reset_Handler+0x7c>)
+ 800014a:	4b11      	ldr	r3, [pc, #68]	; (8000190 <Reset_Handler+0x80>)
+ 800014c:	1ad3      	subs	r3, r2, r3
+ 800014e:	9301      	str	r3, [sp, #4]
+	pDst = (uint8_t*)&_sbss;
+ 8000150:	4b0f      	ldr	r3, [pc, #60]	; (8000190 <Reset_Handler+0x80>)
+ 8000152:	9305      	str	r3, [sp, #20]
+	for(uint32_t i =0 ; i < size ; i++)
+ 8000154:	2300      	movs	r3, #0
+ 8000156:	9302      	str	r3, [sp, #8]
+ 8000158:	e007      	b.n	800016a <Reset_Handler+0x5a>
+	{
+		*pDst++ = 0;
+ 800015a:	9b05      	ldr	r3, [sp, #20]
+ 800015c:	1c5a      	adds	r2, r3, #1
+ 800015e:	9205      	str	r2, [sp, #20]
+ 8000160:	2200      	movs	r2, #0
+ 8000162:	701a      	strb	r2, [r3, #0]
+	for(uint32_t i =0 ; i < size ; i++)
+ 8000164:	9b02      	ldr	r3, [sp, #8]
+ 8000166:	3301      	adds	r3, #1
+ 8000168:	9302      	str	r3, [sp, #8]
+ 800016a:	9a02      	ldr	r2, [sp, #8]
+ 800016c:	9b01      	ldr	r3, [sp, #4]
+ 800016e:	429a      	cmp	r2, r3
+ 8000170:	d3f3      	bcc.n	800015a <Reset_Handler+0x4a>
+	}
+	
+	// Call the main application function
+	main();
+ 8000172:	f7ff ff49 	bl	8000008 <main>
+	
+ 8000176:	bf00      	nop
+ 8000178:	b007      	add	sp, #28
+ 800017a:	f85d fb04 	ldr.w	pc, [sp], #4
+ 800017e:	bf00      	nop
+ 8000180:	20000000 	.word	0x20000000
+ 8000184:	20000000 	.word	0x20000000
+ 8000188:	08000194 	.word	0x08000194
+ 800018c:	20000000 	.word	0x20000000
+ 8000190:	20000000 	.word	0x20000000
