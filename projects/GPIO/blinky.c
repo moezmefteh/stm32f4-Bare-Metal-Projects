@@ -74,21 +74,21 @@ void init_led(void)
     //                     bit31                                         bit0
     // MODER register bits : xx xx xx 01 XX XX XX XX XX XX XX XX XX XX XX XX
     //                      p15      p12                                  p0
-	GPIOD->MODER |= (1U<<24);
-	GPIOD->MODER &= ~(1U<<25);
-	GPIOD->MODER |= (1U<<26);
-	GPIOD->MODER &= ~(1U<<27);
-    GPIOD->MODER |= (1U<<28);
-	GPIOD->MODER &= ~(1U<<29);
-	GPIOD->MODER |= (1U<<30);
-	GPIOD->MODER &= ~(1U<<31);
+    GPIOD->MODER |= GPIO_MODER_MODER12_0;
+    GPIOD->MODER &= ~GPIO_MODER_MODER12_1;
+    GPIOD->MODER |= GPIO_MODER_MODER13_0;
+    GPIOD->MODER &= ~GPIO_MODER_MODER13_1;
+    GPIOD->MODER |= GPIO_MODER_MODER14_0;
+    GPIOD->MODER &= ~GPIO_MODER_MODER14_1;
+    GPIOD->MODER |= GPIO_MODER_MODER15_0;
+    GPIOD->MODER &= ~GPIO_MODER_MODER15_1;
 }
 
 void init_button(void)
 {
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;//GPIOAEN;
-    GPIOA->MODER |= (1U<<30);
-	GPIOA->MODER &= ~(1U<<31);
+    GPIOA->MODER |= GPIO_MODER_MODER15_0;
+	GPIOA->MODER &= ~GPIO_MODER_MODER15_1;
 }
 
 unsigned int read_button(void)
