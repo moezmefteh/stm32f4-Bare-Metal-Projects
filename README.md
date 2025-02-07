@@ -50,10 +50,7 @@ How to develop bare-metal drivers for the following peripherals:
    ```bash
    git clone https://github.com/moezmefteh/stm32f4-Bare-Metal-Projects.git
 Navigate to the project directory:
-
-   ```bash
    cd stm32f4-Bare-Metal-Projects
-Open your preferred IDE or text editor and start exploring the projects.
 
 - Documentation:
 Refer to the provided PDF documentation files for detailed information on each project and peripheral.
