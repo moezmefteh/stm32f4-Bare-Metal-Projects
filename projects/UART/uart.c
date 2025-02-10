@@ -5,10 +5,16 @@ int main(void)
     uar2_tx_init();
     while(1)
     {
-        uart2_write('Y');
+        uart2_write('Y.............\n\r');
+        printf("Hello from STM32F4.............\n\r");
     }
 }
 
+int __io_putchar(int ch)
+{
+    uart2_write(ch);
+    return ch;
+}
 void uart2_write(int ch)
 {
     /*Check the Transmit Data Register is empty*/

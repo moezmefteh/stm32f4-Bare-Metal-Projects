@@ -3,6 +3,7 @@
 
 #include "stm32f4xx.h"
 #include <stdint.h>
+#include <stdio.h>
 
 #define SYS_FREQ            16000000
 #define APB1_CLK            SYS_FREQ
