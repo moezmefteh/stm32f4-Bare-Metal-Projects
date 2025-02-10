@@ -1,0 +1,7 @@
+#include "adc.h"
+
+int main(void)
+{
+
+}
+
