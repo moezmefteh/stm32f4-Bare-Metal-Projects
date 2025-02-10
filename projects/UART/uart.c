@@ -1,10 +1,28 @@
 #include "uart.h"
 
-static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t BaudRate);
-static uint16_t compte_uart_bd(uint32_t PeriphClk, uint32_t BaudRate);
+#define SYS_FREQ            16000000
+#define APB1_CLK            SYS_FREQ
+#define UART_BAUDRATE       115200
 
 int main(void)
 {
+    uar2_tx_init();
+    while(1)
+    {
+        uart2_write('Y');
+    }
+}
+
+void uart2_write(int ch)
+{
+    /*Check the Transmit Data Register is empty*/
+    while(!(USART2->SR & USART_CR1_TXEIE)){}
+    /*write to transmit data register*/
+    USART2->DR = (ch & 0xFF);
+}
+void uar2_tx_init(void)
+{
+    /******************Configure UART GPIO pins******************/
     /*Enable clock access to GPIOA*/
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
     /*Set PA2 mode to alternate function mode in GPIOx_MODER register*/
@@ -16,11 +34,14 @@ int main(void)
     GPIOA->AFR[0] |= GPIO_AFRL_AFRL2_2
     GPIOA->AFR[0] &= ~GPIO_AFRL_AFRL2_3
 
+    /******************Configure UART Module******************/
     /*Enable clock access to UART2*/
     RCC->APB1ENR |= RCC_APB1ENR_USART2EN;
     /*Configure Baudrate*/
-    uart_set_baudrate()
-
+    uart_set_baudrate(RCC_APB1RSTR_USART2RST, APB1_CLK, UART_BAUDRATE);
+    /*Configure the transfert direction*/
+    USART2->CR1 = USART_CR1_TE;
+    USART2->CR1 |= USART_CR1_UE;
 }
 static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t BaudRate)
 {
