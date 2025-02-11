@@ -5,25 +5,25 @@ int main(void)
 {
     uar2_tx_init();
     init_led_12();
-    uart2_write('Y.............\n\r');
+    uart2_write('Y');
     printf("Hello from STM32F4.............\n\r");
     while(1)
     {
         key = uart2_read();
         if(key == '1')
         {
-            GPIOD->ODR |= (1 << LED_PIN_1);
+            GPIOD->ODR |= (1U << LED_PIN_1);
         }
         else
         {
-            GPIOD->ODR &= ~(1 << LED_PIN_1);
+            GPIOD->ODR &= ~(1U << LED_PIN_1);
         }
     }
 }
 
 void init_led_12(void)
 {
-    RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
     GPIOD->MODER |= GPIO_MODER_MODER12_0;
     GPIOD->MODER &= ~GPIO_MODER_MODER12_1;
 }
@@ -33,7 +33,7 @@ char uart2_read(void)
     /* RXNEIE: RXNE interrupt enable*/
     while(!(USART2->SR & USART_CR1_RXNEIE)){}
     /*Read Data*/
-    return USART2->DR;
+    return (char)(USART2->DR & 0xFF);
 }
 int __io_putchar(int ch)
 {
