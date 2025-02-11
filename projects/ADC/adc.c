@@ -5,13 +5,21 @@ uint32_t sensor_value;
 int main(void)
 {
     pa1_adc_init();
-    start_conversion();
+    start_single_conversion();
+    //start_continuous_conversion();
     while(1){
         sensor_value = adc_read();
         printf("sensor value : %d \n\r", sensor_value);
     }
 }
 
+void start_continuous_conversion(void)
+{
+    /*Enable continuous conversion*/
+    ADC1->CR2 |= ADC_CR2_CONT;
+    /*start adc conversion*/
+    ADC1->CR2 |= ADC_CR2_SWSTART;
+}
 uint32_t adc_read(void)
 {
     /*wait for conversion to be completed*/
@@ -19,7 +27,7 @@ uint32_t adc_read(void)
     /*read converted result*/
     return (ADC1->DR);
 }
-void start_conversion(void)
+void start_single_conversion(void)
 {
     /*start adc conversion*/
     ADC1->CR2 |= ADC_CR2_SWSTART;
