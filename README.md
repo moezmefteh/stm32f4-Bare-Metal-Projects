@@ -55,3 +55,4 @@ Before you start, you need to install the following packages:
 sudo apt update
 sudo apt install gcc-arm-none-eabi
 sudo apt install make
+sudo apt install stlink-tools
