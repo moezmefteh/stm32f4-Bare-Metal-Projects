@@ -1,5 +1,6 @@
 TARGET = adc
 SRCS = adc.c
+INCLUDES += ../UART
 
 LINKER_SCRIPT = ../../STM32F407VGTx_FLASH.ld
 
