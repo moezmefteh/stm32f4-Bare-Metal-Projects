@@ -1,5 +1,4 @@
 #include "adc.h"
-#include "uart.h"
 
 uint32_t sensor_value;
 int main(void)
