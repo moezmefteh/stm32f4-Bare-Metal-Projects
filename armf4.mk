@@ -1,6 +1,6 @@
 CMSIS = ../../Drivers/CMSIS
 
-SRCS += ../../startup/stm32_startup_f4.c
+SRCS += ../../Startup/stm32_startup_f4.c
 
 OBJDIR = Debug
 

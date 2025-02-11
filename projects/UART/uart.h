@@ -12,7 +12,7 @@
 
 static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t BaudRate);
 static uint16_t compte_uart_bd(uint32_t PeriphClk, uint32_t BaudRate);
-void uar2_tx_init(void);
+void uar2_tx_rx_init(void);
 void uart2_write(int ch);
 char uart2_read(void);
 void init_led_12(void);
