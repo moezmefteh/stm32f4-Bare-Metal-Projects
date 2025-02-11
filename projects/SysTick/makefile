@@ -1,6 +1,5 @@
-TARGET = adc
-SRCS = adc.c
-INCLUDES += ../UART
+TARGET = systick
+SRCS = systick.c
 
 LINKER_SCRIPT = ../../STM32F407VGTx_FLASH.ld
 
