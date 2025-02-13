@@ -29,10 +29,8 @@ volatile uint32_t delay_ticks;
 *************************************************/
 int main(void)
 {
-    // Initialize GPIO
     init_led();
-    //init_button();
-    // the code should never leave its master loop, hence while(1) or for(;;)
+    init_button();
     while(1)
     {
         // Set delay based on button state
@@ -102,12 +100,6 @@ void led_toggle(void)
     GPIOD->ODR ^= (1 << LED_PIN_2);
     GPIOD->ODR ^= (1 << LED_PIN_3);
     GPIOD->ODR ^= (1 << LED_PIN_4);
-}
-// Function to introduce a delay
-void nop_delay(unsigned int count) {
-    while (count--) {
-        __asm__("nop");
-    }
 }
 
 void SysTick_Handler(void) {

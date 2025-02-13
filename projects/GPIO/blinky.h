@@ -4,9 +4,6 @@
 #include "stm32f4xx.h"
 #include <stdint.h>
 
-#define SLOWDELAY    0x3fffff
-#define FASTDELAY    0xfffff
-
 #define LED_PIN_1 12
 #define LED_PIN_2 13
 #define LED_PIN_3 14
