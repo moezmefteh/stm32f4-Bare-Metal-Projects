@@ -50,7 +50,7 @@ SECTIONS
     } > FLASH
     
     /* Load address of .data section */
-    _sidata = LOADADDR(.data);
+    _la_data = LOADADDR(.data); 
 
     /* .data section: Initialized data */
     .data :
