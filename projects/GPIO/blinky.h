@@ -14,8 +14,6 @@ void init_led(void);
 void init_button(void);
 void led_toggle(void);
 unsigned int read_button(void);
-void nop_delay(unsigned int count);
-void SysTick_Handler(void);
-void delay_ms(uint32_t milliseconds);
+void delay(unsigned int count);
 
 #endif

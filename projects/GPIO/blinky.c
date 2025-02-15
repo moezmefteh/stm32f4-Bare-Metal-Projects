@@ -19,8 +19,7 @@
  *   6. either read from IDR or write to ODR depending on
  *         input or output configuration
  */
-
-
+#include <stdint.h>
 #include "blinky.h"
 
 volatile uint32_t delay_ticks;
@@ -35,9 +34,9 @@ int main(void)
     {
         // Set delay based on button state
         if(!read_button()) {
-            delay_ms(1000);  // Delay when the button is released
+            delay(0x3ffff);  // Delay when the button is released
         } else {
-            delay_ms(500);   // Delay when the button is pressed
+            delay(0xffff);   // Delay when the button is pressed
         }
         // Toggle LED pins
         led_toggle();
@@ -101,14 +100,8 @@ void led_toggle(void)
     GPIOD->ODR ^= (1 << LED_PIN_3);
     GPIOD->ODR ^= (1 << LED_PIN_4);
 }
-
-void SysTick_Handler(void) {
-    if (delay_ticks > 0) {
-        delay_ticks--;
+void delay(unsigned int count) {
+    while (count--) {
+        __asm__("nop");
     }
-}
-
-void delay_ms(uint32_t milliseconds) {
-    delay_ticks = milliseconds;
-    while (delay_ticks > 0);
 }
