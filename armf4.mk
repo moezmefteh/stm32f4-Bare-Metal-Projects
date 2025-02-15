@@ -1,8 +1,7 @@
 CMSIS = ../../Drivers/CMSIS
 
-#SRCS += ../../Startup/stm32_startup_f4.c
-SRCS += ../../Startup/startup_stm32f407vgtx.s
-SRCS += ../../projects/syscalls.c
+SRCS += ../../Startup/stm32_startup_f4.c
+#SRCS += ../../Startup/startup_stm32f407vgtx.s
 
 OBJDIR = Debug
 
