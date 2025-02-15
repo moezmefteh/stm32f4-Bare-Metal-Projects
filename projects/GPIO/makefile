@@ -1,7 +1,7 @@
 TARGET = blinky
 SRCS = blinky.c
 
-LINKER_SCRIPT = ../../flash/STM32F407VGTX_FLASH.ld
+LINKER_SCRIPT = ../../STM32F407VGTx_FLASH.ld
 
 # Generate debug info
 DEBUG = 1
@@ -10,6 +10,7 @@ DEBUG = 1
 CDEFS  = -DSTM32F407xx
 # Enable FPU
 #CDEFS += -D__VFP_FP__
+LDFLAGS += -nostdlib
 
 include ../../armf4.mk
 
