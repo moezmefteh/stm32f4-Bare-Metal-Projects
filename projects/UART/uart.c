@@ -18,6 +18,7 @@ int main(void)
         {
             GPIOD->ODR &= ~(1U << LED_PIN_1);
         }
+        uart2_write(key);
     }
 }
 
@@ -53,8 +54,8 @@ void uar2_tx_rx_init(void)
     /*Enable clock access to GPIOA*/
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
     /*Set PA2 mode to alternate function mode in GPIOx_MODER register*/
-    GPIOA->MODER |= GPIO_MODER_MODE2_0;
-    GPIOA->MODER &= ~GPIO_MODER_MODE2_1;
+    GPIOA->MODER |= GPIO_MODER_MODE2_1;
+    GPIOA->MODER &= ~GPIO_MODER_MODE2_0;
     /*set PA2 (AFRL2) alternate function type to UART_TX (AF07) in GPIOx_AFRL register*/
     GPIOA->AFR[0] |= GPIO_AFRL_AFRL2_0;
     GPIOA->AFR[0] |= GPIO_AFRL_AFRL2_1;
@@ -62,9 +63,9 @@ void uar2_tx_rx_init(void)
     GPIOA->AFR[0] &= ~GPIO_AFRL_AFRL2_3;
 
     /*Set PA3 mode to alternate function mode in GPIOx_MODER register*/
-    GPIOA->MODER |= GPIO_MODER_MODER3_0;
-    GPIOA->MODER &= ~GPIO_MODER_MODER3_1;
-    /*set PA3 (AFRL2) alternate function type to UART_TX (AF07) in GPIOx_AFRL register*/
+    GPIOA->MODER |= GPIO_MODER_MODER3_1;
+    GPIOA->MODER &= ~GPIO_MODER_MODER3_0;
+    /*set PA3 (AFRL2) alternate function type to UART_RX (AF07) in GPIOx_AFRL register*/
     GPIOA->AFR[0] |= GPIO_AFRL_AFRL3_0;
     GPIOA->AFR[0] |= GPIO_AFRL_AFRL3_1;
     GPIOA->AFR[0] |= GPIO_AFRL_AFRL3_2;
