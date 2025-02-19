@@ -1,4 +1,7 @@
 CMSIS = ../../Drivers/CMSIS
+HAL = ../../HAL
+HAL_INC := $(HAL)/inc
+HAL_SRC := $(HAL)/src
 
 SRCS += ../../Startup/stm32_startup_f4.c
 #SRCS += ../../Startup/startup_stm32f407vgtx.s
@@ -12,6 +15,7 @@ vpath %.s $(sort $(dir $(SRCS)))
 
 INCLUDES += -I$(CMSIS)/Device
 INCLUDES += -I$(CMSIS)/Core
+INCLUDES += -I$(HAL_INC)
 
 CFLAGS += $(CDEFS)
 
@@ -69,6 +73,9 @@ OBJCOPY = $(CROSS_COMPILE)objcopy
 SIZE = $(CROSS_COMPILE)size
 DBG = $(CROSS_COMPILE)gdb
 
+BIN_FILE = Debug/$(TARGET).bin
+ST_FLASH = st-flash
+
 all: clean $(SRCS) build size
 	@echo "Successfully finished..."
 
@@ -114,5 +121,11 @@ burn:
 clean:
 	@echo "Cleaning..."
 	@rm -rf $(OBJDIR)/
+
+flash: $(BIN_FILE)
+	$(ST_FLASH) write $(BIN_FILE) 0x8000000
+
+erase:
+	$(ST_FLASH) erase
 
 .PHONY: all build size clean burn debug disass disass-all

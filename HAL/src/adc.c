@@ -1,17 +1,5 @@
 #include "adc.h"
 
-uint32_t sensor_value;
-int main(void)
-{
-    pa1_adc_init();
-    start_single_conversion();
-    //start_continuous_conversion();
-    while(1){
-        sensor_value = adc_read();
-        printf("sensor value : %d \n\r", sensor_value);
-    }
-}
-
 void start_continuous_conversion(void)
 {
     /*Enable continuous conversion*/
@@ -37,15 +25,15 @@ void pa1_adc_init(void)
     /*Enable clock access to GPIOA*/
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
     /*Set PA1 mode to analog mode in GPIOx_MODER register*/
-    GPIOA->MODER |= GPIO_MODER_MODER1_0
-    GPIOA->MODER |= GPIO_MODER_MODER1_1
+    GPIOA->MODER |= GPIO_MODER_MODER1_0;
+    GPIOA->MODER |= GPIO_MODER_MODER1_1;
 
     /******************Configure ADC Module******************/
     /*Enable clock access to ADC*/
     RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
     /*Configure the ADC params*/
     /*Conversion sequence start*/
-    ADC1->SQR3 = ADC_SQR3_SQ1;
+    ADC1->SQR3 = ADC_SQR3_SQ1_0;
     /*Conversion sequence length*/
     ADC1->SQR1 &= ~ADC_SQR1_L;
     /*Enable ADC module*/

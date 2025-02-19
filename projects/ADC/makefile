@@ -1,6 +1,11 @@
 TARGET = adc
-SRCS = adc.c
-INCLUDES += ../UART
+SRC_DIR := $(CURDIR)
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+
+SRCS += $(HAL_SRC)/adc.c
+SRCS += $(HAL_SRC)/uart.c
+SRCS += $(HAL_SRC)/syscalls.c
+SRCS += $(HAL_SRC)/gpio.c
 
 LINKER_SCRIPT = ../../STM32F407VGTx_FLASH.ld
 

@@ -1,9 +1,13 @@
 TARGET = systick
-SRCS = systick.c
+SRC_DIR := $(CURDIR)
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+
+SRCS += $(HAL_SRC)/systick.c
+SRCS += $(HAL_SRC)/uart.c
+SRCS += $(HAL_SRC)/syscalls.c
+SRCS += $(HAL_SRC)/gpio.c
 
 LINKER_SCRIPT = ../../STM32F407VGTx_FLASH.ld
-INCLUDES += ../UART
-INCLUDES += ../GPIO
 
 # Generate debug info
 DEBUG = 1
