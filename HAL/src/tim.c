@@ -17,15 +17,15 @@ void tim4_pd12_output_compare(void)
 {
     RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
 
-    GPIOD->MODER |= GPIO_MODER_MODER12_0;
-    GPIOD->MODER &= ~GPIO_MODER_MODER12_1;
-    /*set PD12 alternate function type to TIM2_CH1 (AF01) in GPIOx_AFRL register*/
+    GPIOD->MODER &= ~GPIO_MODER_MODER12_0;
+    GPIOD->MODER |= GPIO_MODER_MODER12_1;
+    /*set PD12 alternate function type to TIM4_CH1 (AF02) in GPIOx_AFRL register*/
     GPIOD->AFR[1] &= ~GPIO_AFRH_AFRH4_0;
     GPIOD->AFR[1] |= GPIO_AFRH_AFRH4_1;
     GPIOD->AFR[1] &= ~GPIO_AFRH_AFRH4_2;
     GPIOD->AFR[1] &= ~GPIO_AFRH_AFRH4_3;
 
-    /*Enable clock access to tim2*/
+    /*Enable clock access to tim4*/
     RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
     /*Set prescaler value*/
     TIM4->PSC = 1600 - 1; // 16 000 000 / 1 600 = 10 000
