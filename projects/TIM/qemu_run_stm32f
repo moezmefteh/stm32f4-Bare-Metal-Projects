@@ -1,0 +1,7 @@
+#!/bin/bash
+QEMU=qemu-system-arm
+MACHINE=netduinoplus2
+KERNEL=Debug/tim.elf
+GDB_PORT=1234
+
+$QEMU -M $MACHINE -kernel $KERNEL -s -S -gdb tcp::$GDB_POR
