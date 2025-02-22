@@ -5,4 +5,6 @@
 
 void tim2_1hz_init(void);
 void tim4_pd12_output_compare(void);
+void tim5_pa0_input_capture(void);
+
 #endif
