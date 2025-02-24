@@ -5,6 +5,10 @@
 #include <stdint.h>
 #include <stdio.h>
 
+extern void init_led(void);
+extern void uart2_tx_rx_init(void);
+extern void led_toggle(void);
+
 #define SYS_FREQ            16000000
 #define APB1_CLK            SYS_FREQ
 #define UART_BAUDRATE       115200

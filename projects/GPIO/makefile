@@ -2,10 +2,17 @@ TARGET = blinky
 SRC_DIR := $(CURDIR)
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 
+PRO_DIR := ../..
 SRCS += $(HAL_SRC)/gpio.c
 
-LINKER_SCRIPT = ../../STM32F407VGTx_FLASH.ld
+SRCS += $(PRO_DIR)/Startup/stm32_startup_f4.c
+#SRCS += $(PRO_DIR)/Startup/startup_stm32f407vgtx.s
 
+LINKER_SCRIPT = $(PRO_DIR)/STM32F407VGTx_FLASH.ld
+
+CFLAGS += -mcpu=cortex-m4 -mthumb
+
+LDFLAGS += -mcpu=cortex-m4 -mthumb
 # Generate debug info
 DEBUG = 1
 
@@ -15,4 +22,4 @@ CDEFS  = -DSTM32F407xx
 #CDEFS += -D__VFP_FP__
 LDFLAGS += -nostdlib
 
-include ../../armf4.mk
+include $(PRO_DIR)/armf4.mk

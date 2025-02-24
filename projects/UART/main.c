@@ -1,5 +1,4 @@
 #include "uart.h"
-#include "gpio.h"
 
 char key;
 int main(void)

@@ -25,9 +25,6 @@ extern uint32_t _ebss;
 //prototype of main
 int main(void);
 
-// Forward declaration
-extern void exti_pa0_callback(void); 
-
 /* function prototypes of STM32F103C8x system exception and IRQ handlers */
 
 void Reset_Handler(void);
@@ -47,7 +44,7 @@ void TAMPER_IRQHandler 				(void) __attribute__ ((weak, alias("Default_Handler")
 void RTC_IRQHandler 				(void) __attribute__ ((weak, alias("Default_Handler")));         
 void Flash_IRQHandler 				(void) __attribute__ ((weak, alias("Default_Handler")));       
 void RCC_IRQHandler 				(void) __attribute__ ((weak, alias("Default_Handler")));             
-void EXTI0_IRQHandler 				(void);           
+void EXTI0_IRQHandler 				(void) __attribute__ ((weak, alias("Default_Handler")));           
 void EXTI1_IRQHandler 				(void) __attribute__ ((weak, alias("Default_Handler")));           
 void EXTI2_IRQHandler 				(void) __attribute__ ((weak, alias("Default_Handler")));           
 void EXTI3_IRQHandler 				(void) __attribute__ ((weak, alias("Default_Handler")));           
@@ -233,15 +230,4 @@ void Reset_Handler(void)
 	// Call the main application function
 	main();
 	
-}
-
-void EXTI0_IRQHandler(void)
-{
-	if(!(EXTI->PR & EXTI_PR_PR0))
-	{
-		/*clear PR flag*/
-		EXTI->PR |= EXTI_PR_PR0;
-		/*Do Something*/
-		exti_pa0_callback();
-	}
 }

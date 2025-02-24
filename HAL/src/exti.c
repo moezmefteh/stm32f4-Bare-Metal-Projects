@@ -22,6 +22,16 @@ void pa0_exti_init(void)
     /*Enable glabal interrupts*/
     __enable_irq();
 }
+void EXTI0_IRQHandler(void)
+{
+	if(!(EXTI->PR & EXTI_PR_PR0))
+	{
+		/*clear PR flag*/
+		EXTI->PR |= EXTI_PR_PR0;
+		/*Do Something*/
+		exti_pa0_callback();
+	}
+}
 void exti_pa0_callback(void)
 {
     printf("BTN Pressed...\n\r");

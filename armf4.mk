@@ -1,15 +1,12 @@
-CMSIS = ../../Drivers/CMSIS
-HAL = ../../HAL
+CMSIS = $(PRO_DIR)/Drivers/CMSIS
+HAL = $(PRO_DIR)/HAL
 HAL_INC := $(HAL)/inc
 HAL_SRC := $(HAL)/src
-
-SRCS += ../../Startup/stm32_startup_f4.c
-#SRCS += ../../Startup/startup_stm32f407vgtx.s
 
 OBJDIR = Debug
 
 OBJS := $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.o)))
-OBJS := $(addprefix $(OBJDIR)/,$(notdir $(OBJS:.s=.o)))
+#OBJS := $(addprefix $(OBJDIR)/,$(notdir $(OBJS:.s=.o)))
 vpath %.c $(sort $(dir $(SRCS)))
 vpath %.s $(sort $(dir $(SRCS)))
 
@@ -19,7 +16,6 @@ INCLUDES += -I$(HAL_INC)
 
 CFLAGS += $(CDEFS)
 
-CFLAGS += -mcpu=cortex-m4 -mthumb # processor setup
 CFLAGS += -O0 # optimization is off
 CFLAGS += -std=gnu11 # use GNU 11 standard
 
@@ -50,7 +46,6 @@ CFLAGS += -mfloat-abi=softfp -mfpu=fpv4-sp-d16 # Soft FP
 LDFLAGS += -mfloat-abi=softfp -mfpu=fpv4-sp-d16 # Soft FP
 #LDFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16 # Hard FP
 
-LDFLAGS += -mcpu=cortex-m4 -mthumb # processor setup
 #LDFLAGS += -nostartfiles # dont use standard start files
 #LDFLAGS += -nodefaultlibs # dont use standard libraries
 #LDFLAGS += -nostdlib # dont use startup or default libs

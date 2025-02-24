@@ -1,5 +1,5 @@
 #include "tim.h"
-int timestamp = 0;
+uint32_t timestamp = 0;
 
 int main(void)
 {
@@ -20,7 +20,7 @@ int main(void)
         while(!(TIM5->SR & TIM_SR_CC1IF)){}
         /*Read captured value*/
         timestamp = TIM5->CCR1;
-        printf("..........%d\n\r",timestamp);
+        printf("..........%lu\n\r",timestamp);
 
     }
 }

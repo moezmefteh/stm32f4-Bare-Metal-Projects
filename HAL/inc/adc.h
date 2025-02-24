@@ -3,6 +3,7 @@
 
 #include "stm32f4xx.h"
 #include <stdint.h>
+#include <stdio.h>
 
 
 uint32_t adc_read(void);
