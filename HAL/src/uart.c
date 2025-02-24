@@ -54,11 +54,11 @@ void uart2_tx_rx_init(void)
     /*Enable Receiver*/
     USART2->CR1 |= USART_CR1_RE;
 }
-static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t BaudRate)
+void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t BaudRate)
 {
     USARTx->BRR = compte_uart_bd(PeriphClk,BaudRate);
 }
-static uint16_t compte_uart_bd(uint32_t PeriphClk, uint32_t BaudRate)
+uint16_t compte_uart_bd(uint32_t PeriphClk, uint32_t BaudRate)
 {
     return ((uint16_t)((PeriphClk + (BaudRate/2U))/BaudRate) & 0xFFFF);
 }

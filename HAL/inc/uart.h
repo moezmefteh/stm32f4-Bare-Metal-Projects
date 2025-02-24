@@ -10,8 +10,8 @@
 #define UART_BAUDRATE       115200
 #define LED_PIN_1 12
 
-static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t BaudRate);
-static uint16_t compte_uart_bd(uint32_t PeriphClk, uint32_t BaudRate);
+void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t BaudRate);
+uint16_t compte_uart_bd(uint32_t PeriphClk, uint32_t BaudRate);
 void uart2_tx_rx_init(void);
 void uart2_write(int ch);
 char uart2_read(void);
