@@ -1,6 +1,9 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+extern void uart2_write(int ch);
+extern char uart2_read(void);
+
 int _write(int file, char *ptr, int len) {
     (void)file;
     for (int i = 0; i < len; i++) {
