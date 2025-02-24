@@ -1,4 +1,4 @@
-TARGET = nvic
+TARGET = uart_interrupt
 APP_DIR := $(CURDIR)
 SRCS = $(wildcard $(APP_DIR)/*.c)
 
