@@ -6,5 +6,7 @@
 
 void pa0_exti_init(void);
 void exti_pa0_callback(void);
+void uart2_rx_interrupt_init(void);
+void uart_callback(void);
 
 #endif

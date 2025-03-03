@@ -36,3 +36,31 @@ void exti_pa0_callback(void)
 {
     printf("BTN Pressed...\n\r");
 }
+void uart2_rx_interrupt_init(void)
+{
+    /*Enable RXNE interrupt*/
+    USART2->CR1 |= USART_CR1_RXNEIE;
+    /*Enable UART2 interrupt in NVIC*/
+    NVIC_EnableIRQ(USART2_IRQn);
+}
+void uart_callback(void)
+{
+    char key;
+    key = (char)(USART2->DR & 0xFF);
+    if(key == '1')
+    {
+        printf("1 is recived from UART...\n\r");
+    }
+    else
+    {
+        printf("garbage is recived from UART...\n\r");
+    }
+}
+void USART2_IRQHandler(void)
+{
+    /*Check if RXNE is set*/
+    if(USART2->SR & USART_SR_RXNE)
+    {
+        uart_callback();
+    }
+}
