@@ -24,7 +24,7 @@ void pa0_exti_init(void)
 }
 void EXTI0_IRQHandler(void)
 {
-	if(!(EXTI->PR & EXTI_PR_PR0))
+	if((EXTI->PR & EXTI_PR_PR0))
 	{
 		/*clear PR flag*/
 		EXTI->PR |= EXTI_PR_PR0;
