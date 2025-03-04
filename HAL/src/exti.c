@@ -1,5 +1,8 @@
 #include "exti.h"
 
+char key;
+uint32_t sensor_value;
+
 void pa0_exti_init(void)
 {
     /*Disable global interrupts*/
@@ -45,7 +48,6 @@ void uart2_rx_interrupt_init(void)
 }
 void uart_callback(void)
 {
-    char key;
     key = (char)(USART2->DR & 0xFF);
     if(key == '1')
     {
@@ -63,4 +65,26 @@ void USART2_IRQHandler(void)
     {
         uart_callback();
     }
+}
+void pa1_adc_interrupt_init(void)
+{
+    /*Enable ADC end of conversion interrupt*/
+    ADC1->CR1 |= ADC_CR1_EOCIE;
+    /*Enable ADC interrupt in NVIC*/
+    NVIC_EnableIRQ(ADC_IRQn);
+}
+void ADC1_2_IRQHandler(void)
+{
+    /*Check for eoc in SR*/
+    if ((ADC1->SR & ADC_SR_EOC) != 0)
+    {
+        /*Clear EOC*/
+        ADC1->SR &= ~ADC_SR_EOC;
+        adc_callback();
+    }
+}
+void adc_callback(void)
+{
+    sensor_value = ADC1->DR;
+    printf("sensor value : %lu \n\r", sensor_value);
 }
