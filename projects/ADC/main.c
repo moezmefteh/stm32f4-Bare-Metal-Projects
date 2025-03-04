@@ -1,6 +1,4 @@
 #include "adc.h"
-#include "uart.h"
-#include "gpio.h"
 
 uint32_t sensor_value;
 int main(void)
