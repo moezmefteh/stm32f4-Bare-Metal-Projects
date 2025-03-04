@@ -107,3 +107,20 @@ void systick_callback(void)
 {
     printf("1 second passed !! \n\r");
 }
+void tim2_1hz_interrupt_init(void)
+{
+    /*Enable TIM interrupt*/
+    TIM2->DIER |= TIM_DIER_UIE;
+    /*Enable TIM interrupt in NVIC*/
+    NVIC_EnableIRQ(TIM2_IRQn);
+}
+void TIM2_IRQHandler(void)
+{
+    /*clear update interrupt flag*/
+    TIM2->SR &=~TIM_SR_UIF;
+    tim2_callback();
+}
+void tim2_callback(void)
+{
+    printf("1 second passed !! \n\r");
+}
