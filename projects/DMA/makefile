@@ -3,6 +3,8 @@ SRC_DIR := $(CURDIR)
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 
 PRO_DIR := ../..
+SRCS += $(HAL_SRC)/dma.c
+SRCS += $(HAL_SRC)/gpio.c
 SRCS += $(HAL_SRC)/uart.c
 SRCS += $(HAL_SRC)/syscalls.c
 
