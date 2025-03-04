@@ -88,3 +88,22 @@ void adc_callback(void)
     sensor_value = ADC1->DR;
     printf("sensor value : %lu \n\r", sensor_value);
 }
+void systick_1hz_interrupt(void)
+{
+    /*Reload with number of clocks persecond*/
+    SysTick->LOAD = ONE_SEC_LOAD - 1;
+    /*Clear systick current value register*/
+    SysTick->VAL = 0;
+    /*Enable systick and select internal clk src*/
+    SysTick->CTRL = SysTick_CTRL_ENABLE_Msk | SysTick_CTRL_CLKSOURCE_Msk;
+    /*Enable systick interrupt*/
+    SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;
+}
+void SysTick_Handler(void)
+{
+    systick_callback();
+}
+void systick_callback(void)
+{
+    printf("1 second passed !! \n\r");
+}

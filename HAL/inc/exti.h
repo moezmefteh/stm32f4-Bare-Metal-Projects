@@ -12,4 +12,8 @@ void uart_callback(void);
 void pa1_adc_interrupt_init(void);
 void adc_callback(void);
 
+#define ONE_SEC_LOAD        16000000 
+void systick_1hz_interrupt(void);
+void systick_callback(void);
+
 #endif
